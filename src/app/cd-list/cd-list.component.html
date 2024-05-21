@@ -1,0 +1,38 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Artista</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Compra</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (cd of cds; track $index) {
+            <tr>
+                <td><img width="100" class ="img-thumbnail"
+                    [src]="cd.image" [alt]="cd.name">
+                </td>
+                <td>{{cd.name}}</td>
+                <td>{{cd.artist}}</td>
+                <td>{{cd.price | currency}}</td>
+                @if (cd.stock>0) {
+                    <td>{{cd.stock}}</td>
+                }@else {
+                    <td><span class="badge text-bg-warning">Sin Stock</span></td>
+                }
+                <td>
+                    <button class="btn btn-primary btn-sm" (click)="downQuantity(cd)">-</button>
+                    {{cd.quantity}}
+                    <button class="btn btn-primary btn-sm" (click)="upQuantity(cd)">+</button>
+                </td>
+            </tr>
+        }@empty {:
+            <tr>
+                <td colspan="4">No hay cd's para mostrar</td>
+            </tr>
+        }
+    </tbody>
+</table>
