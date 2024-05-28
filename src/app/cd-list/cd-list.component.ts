@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CdCartService } from '../cd-cart.service';
 import { CD } from './CD';
 
 @Component({
@@ -7,6 +8,17 @@ import { CD } from './CD';
   styleUrl: './cd-list.component.scss'
 })
 export class CdListComponent {
+  
+
+  constructor (private cart: CdCartService) {
+    this.cart;
+  }
+
+  addToCart(cd:CD): void {
+    this.cart.addToCart(cd);
+    cd.stock -= cd.quantity;
+    cd.quantity = 0;
+  }
 
   cds: CD[] = [
     {
@@ -51,15 +63,6 @@ export class CdListComponent {
     }
   ]
 
-  downQuantity(cd:CD): void {
-  if (cd.quantity>0)
-    cd.quantity--;
-}
-
-upQuantity(cd:CD): void {
-  if (cd.quantity<cd.stock)
-    cd.quantity++;
-}
 }
 
 

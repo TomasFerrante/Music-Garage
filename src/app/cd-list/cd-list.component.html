@@ -21,14 +21,13 @@
                 <td>{{cd.price | currency}}</td>
                 @if (cd.stock>0) {
                     <td>{{cd.stock}}</td>
+                    <td>
+                        <app-input-number [cd]="cd"></app-input-number>
+                        <button class="btn btn-primary" (click)="addToCart(cd)">Añadir</button>
+                    </td>
                 }@else {
                     <td><span class="badge text-bg-warning">Sin Stock</span></td>
                 }
-                <td>
-                    <button class="btn btn-primary btn-sm" (click)="downQuantity(cd)">-</button>
-                    {{cd.quantity}}
-                    <button class="btn btn-primary btn-sm" (click)="upQuantity(cd)">+</button>
-                </td>
             </tr>
         }@empty {:
             <tr>

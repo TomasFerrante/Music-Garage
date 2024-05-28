@@ -7,6 +7,7 @@ import { CdListComponent } from './cd-list/cd-list.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { AboutComponent } from './about/about.component';
 import { CdsComponent } from './cds/cds.component';
+import { InputNumberComponent } from './input-number/input-number.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CdsComponent } from './cds/cds.component';
     CdListComponent,
     ShopListComponent,
     AboutComponent,
-    CdsComponent
+    CdsComponent,
+    InputNumberComponent
   ],
   imports: [
     BrowserModule,

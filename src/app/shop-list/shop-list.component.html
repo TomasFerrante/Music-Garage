@@ -1,1 +1,8 @@
 <h3>Compras</h3>
+<ul>
+    @for (cd of cartList$ | async; track $index) {
+        <li>
+            {{cd.name}}: {{cd.quantity}}
+        </li>
+    }
+</ul>
